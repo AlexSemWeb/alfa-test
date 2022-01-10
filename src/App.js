@@ -9,6 +9,7 @@ const App = () => {
   const posts = useSelector((state) => state.postsReducer.posts);
   const isFetching = useSelector((state) => state.postsReducer.isFetching);
   const isFiltered = useSelector((state) => state.postsReducer.isFiltered);
+  const isFailure = useSelector((state) => state.postsReducer.isFailure);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -17,6 +18,8 @@ const App = () => {
 
   if (isFetching) {
     return <div className="loading">Идёт загрузка...</div>;
+  } else if (isFailure) {
+    return <div className="loading">Произошла ошибка при загрузке постов</div>;
   } else if (!posts.length) {
     return <div className="loading">Постов нет</div>;
   }

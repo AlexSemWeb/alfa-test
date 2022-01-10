@@ -7,12 +7,12 @@ import { removePostAction, likePostAction } from "../store/postsReducer";
 const Post = ({ img, title, id, isLiked = false }) => {
   const dispatch = useDispatch();
 
-  //Удаление поста
+  // Удаление поста
   function removePost() {
     dispatch(removePostAction(id));
   }
 
-  //Лайк поста
+  // Лайк поста
   function likePost() {
     dispatch(likePostAction(id));
   }
